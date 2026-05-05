@@ -2,109 +2,186 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-   font-family: "Ubuntu", sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
+/* ===== BODY AJUSTADO ===== */
 body {
+  min-height: 100vh; /* melhor que height */
   background: url('assets/fundo2.jpg') no-repeat center center;
   background-size: cover;
+  background-attachment: fixed; /* deixa mais bonito no desktop */
+  
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+
   color: rgb(3, 73, 50);
-}
-
-.container {
-  background: rgba(255, 255, 255, 0.1); /* fundo semi-transparente */
-  backdrop-filter: blur(10px); /* efeito de desfoque */
   padding: 20px;
-  border-radius: 50px;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  width: 100%;
+  max-width: 400px; /* 🔥 responsivo de verdade */
+  
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  
+  padding: 25px;
+  border-radius: 30px;
   text-align: center;
-  height: 65%;
-  width: 30%;
 }
 
-h1 {
-    font-size: 40px;
-    
-}
-
-h2 {
-    font-size: 25px;
-    margin-top: 10px;
-}
-
+/* ===== CONTEÚDO ===== */
 .container-main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  height: 50%;
+  gap: 20px;
 }
 
+/* ===== TÍTULOS ===== */
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+/* ===== BOTÕES ===== */
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
 button {
-    margin-top: 50px;
-    margin-left: 15px;
-    margin-right: 15px;
-    height: 80px;
-    width: 80px;
-    border: none;
-    border-radius: 10px;
-    background-color: #4CAF50;
-    cursor: pointer;   
-    font-size: 50px;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    transition: 0.2s;
+  margin: 10px;
+  height: 80px;
+  width: 80px;
+  border: none;
+  border-radius: 10px;
+  background-color: #4CAF50;
+  cursor: pointer;
+  font-size: 50px;
+
+  transition: 0.2s;
 }
 
 button:hover {
-    background-color: #45a049;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    scale: 1.1;
+  background-color: #45a049;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transform: scale(1.1);
 }
 
 button:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-    scale: 0.9;
+  background-color: #3e8e41;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transform: scale(0.9);
 }
 
-.score {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 90px;
-    font-size: 40px;
-    font-weight: bold;
-}
-
+/* ===== RESULTADO ===== */
 #result {
-    margin-top: 40px;
-    font-size: 25px;
-    font-weight: bold;
-    transition: all 0.3s ease;
+  font-size: 24px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-align: center;
 }
 
+/* ===== PLACAR ===== */
+.score {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+/* ===== RESET ===== */
 #reset {
-    background-color: #4CAF50;
-    margin-top: 20px;
-    font-size: 30px;
-    height: 90px;
-    width: 180px;
-    padding: 10px;
-    transition: 0.5s;
+  background-color: #4CAF50;
+  font-size: 24px;
+  height: 80px;
+  width: 160px;
+  transition: 0.3s;
 }
 
 #reset:hover {
-    background-color: #45a049;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    scale: 1.1;
+  background-color: #45a049;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transform: scale(1.1);
 }
 
 #reset:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-    scale: 0.9;
+  background-color: #3e8e41;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transform: scale(0.9);
+}
+
+/* ========================= */
+/* 📱 RESPONSIVIDADE */
+/* ========================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 500px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll; /* 🔥 corrige bug no mobile */
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  button {
+    width: 70px;
+    height: 70px;
+    font-size: 40px;
+  }
+
+  .score {
+    font-size: 30px;
+  }
+
+  #reset {
+    width: 140px;
+    height: 70px;
+    font-size: 20px;
+  }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  button {
+    width: 60px;
+    height: 60px;
+    font-size: 32px;
+  }
+
+  .score {
+    font-size: 24px;
+  }
+
+  #reset {
+    width: 120px;
+    height: 60px;
+    font-size: 18px;
+  }
 }
